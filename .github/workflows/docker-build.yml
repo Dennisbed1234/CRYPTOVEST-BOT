@@ -1,0 +1,24 @@
+name: Docker Build (local artifact)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: |
+          docker build -t cryptovest-bot:${{ github.sha }} .
+          docker save cryptovest-bot:${{ github.sha }} -o cryptovest-bot.tar
+
+      - name: Upload Docker image artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: docker-image
+          path: cryptovest-bot.tar
