@@ -1,0 +1,20 @@
+{
+  "name": "cryptovest-bot",
+  "version": "1.0.0",
+  "description": "Telegram bot: crypto alerts, wallet security checks, and admin-only security recon tools",
+  "type": "module",
+  "main": "src/bot.js",
+  "scripts": {
+    "start": "node src/bot.js",
+    "dev": "node --watch src/bot.js"
+  },
+  "dependencies": {
+    "grammy": "^1.30.0",
+    "node-fetch": "^3.3.2",
+    "node-cron": "^3.0.3",
+    "dotenv": "^16.4.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
